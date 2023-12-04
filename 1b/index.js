@@ -26,21 +26,7 @@ text.forEach(element => {
 
 const textNum = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
-text.forEach(element => {
-  const numbers = element.match(/\d/g);
 
-  if (numbers) {
-    const firstNumber = numbers[0];
-    const lastNumber = numbers[numbers.length - 1];
-    const foundNumbers = Number(firstNumber + lastNumber);
+const message = prompt("¿cuál es tu reno favorito?")
 
-    arrayOnlyNumbers.push(foundNumbers);
-
-    let totalSum = 0;
-    arrayOnlyNumbers.forEach(num => totalSum += num);
-    console.log("totalSum", totalSum);
-  } else {
-    console.log("no hay numeros")
-  }
-
-});
+document.write(`<h1>tu reno favorito es <i style="background-color:Tomato;">&nbsp;${message}&nbsp;</i></h1>`)
