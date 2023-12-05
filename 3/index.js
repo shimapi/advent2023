@@ -22,9 +22,35 @@ La modificación puede ocurrir en cualquier lugar de la cadena.
 La secuencia original puede estar vacía
 */
 
+//Esta solución pasó todos los test, menos un test sorpresa... a probar otra solución.
 function findNaughtyStep(original, modified) {
   const originalArr = original.split('');
   const modifiedArr = modified.split('');
+  //console.log(originalArr)
+  //console.log(modifiedArr)
+  const differenceArr = [];
 
-  return ''
+  // comparo originalArr con modifiedArr
+  for (let i = 0; i < originalArr.length; i++) {
+    if (modifiedArr.indexOf(originalArr[i]) === -1) {
+      differenceArr.push(originalArr[i]);
+    }
+  }
+
+  // comparo modifiedArr con originalArr
+  for (let i = 0; i < modifiedArr.length; i++) {
+    if (originalArr.indexOf(modifiedArr[i]) === -1) {
+      differenceArr.push(modifiedArr[i]);
+    }
+  }
+
+  console.log(differenceArr)
+
+  if (differenceArr == []) {
+    return '';
+  } else {
+    return differenceArr.toString();
+  }
 }
+
+findNaughtyStep("stepssfor", "stepfsor")

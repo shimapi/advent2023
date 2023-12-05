@@ -20,3 +20,39 @@ A tener en cuenta:
 Siempre habrá un paso de diferencia o ninguno.
 La modificación puede ocurrir en cualquier lugar de la cadena.
 La secuencia original puede estar vacía
+
+
+
+----
+
+function findNaughtyStep(original, modified) {
+  const originalArr = original.split('');
+  const modifiedArr = modified.split('');
+  console.log(originalArr)
+  console.log(modifiedArr)
+  const differenceArr = [];
+
+  // comparo originalArr con modifiedArr
+  const a = originalArr.filter(element => { !modifiedArr.includes(element) })
+  const b = modifiedArr.filter(element => { !originalArr.includes(element) })
+
+  console.log(a, b)
+
+  /*   // comparo modifiedArr con originalArr
+    originalArr.reduce((differenceArr, element) => {
+      console.log("modifiedArr ele", element)
+      if (modifiedArr.indexOf(element) === -1) {
+        differenceArr.push(element);
+      }
+    });
+   */
+  console.log(differenceArr)
+
+  if (differenceArr == []) {
+    return '';
+  } else {
+    return differenceArr.toString();
+  }
+}
+
+findNaughtyStep("abcde", "34567")
